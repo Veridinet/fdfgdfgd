@@ -1,1 +1,53 @@
-dsdssdsdsd
+<transactions-configuration asset-name="Office365">
+        <transaction id="default|Offic">
+            <!--default transaction-->
+            <predicates>
+                <url-prefix exact-match="false"/>
+            </predicates>
+            <status-predicates/>
+            <activity-info/>
+            <session>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*MSPAuth=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*ESTSAUTH=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[[aA]uthorization:\s*[bB]earer\s*(?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:^|[?&#]|%(?:26|3F))access_token(?:=|%3D)(?P<ID>.+?)(?:&|$|%26)]]></get-session-binding>
+                <get-session-binding source="request-url" type="regex"><![CDATA[(?:^|[?&])token=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[X-AccessToken:\s*(?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-url" type="regex"><![CDATA[(?:^|[?&])X-OWA-CANARY=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-url" type="regex"><![CDATA[(?:^|[?&])access_token=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*FedAuth=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*rtFa=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-body" type="regex"><![CDATA[access_token%3D(?P<ID>.+?)%22]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[Authorization:\s*Basic\s*(?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*TSAUTHCOOKIE=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-body" type="regex"><![CDATA[(?:^|[?&#]|%(?:26|3F))access_token(?:=|%3D)(?P<ID>.+?)(?:&|$|%26)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[skypetoken=(?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-url" type="regex"><![CDATA[(?:^|[?&])tempauth=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[[bB]earer=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[X-Skypetoken:\s(?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*AP.CookiesC2=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-url" type="regex"><![CDATA[&sig=(?P<ID>[^%]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*s.AjaxSessionKey=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*OpenIdConnect.code.v1=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*CCSInfo=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*SPOIDCRL=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[Authorization:.+?t=(?P<ID>[^+/]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*AADAuth=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*CrmOwinAuth=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*MSISAuth=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[x-functions-key:\s*(?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-url" type="regex"><![CDATA[(?:^|[?&])siq=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[x-ms-client-session-id:\s*(?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?i)Authorization: bearer (?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*ESTSAUTHLIGHT=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-body" type="regex"><![CDATA[(?:^|[?&])flowToken=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-body" type="regex"><![CDATA[(?:^|[?&])code=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*ESTSAUTH(?:LIGHT|PERSISTENT)?=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-body" type="regex"><![CDATA[(?:%22|%27|['"])portalAuthorization(?:%22|%27|['"])(?:%3A|:)(?:\+|\s)*(?:(?:%22|%27|['"])(?P<ID>.+?)(?:%22|%27|['"])|(?P<ID>.+?)(?:,|\}|\]|%2C|%7D|%5D))]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*fpc=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*CCState=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-body" type="regex"><![CDATA[(?:^|[?&])refresh_token=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*ESTSAUTHPERSISTENT=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-body" type="regex"><![CDATA[(?:^|[?&])tempauth=(?P<ID>[^&]+)]]></get-session-binding>
+            </session>
+        </transaction>
