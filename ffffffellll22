@@ -1,0 +1,17 @@
+<transactions-configuration asset-name="Office365">
+        <transaction id="default|Offic">
+            <!--default transaction-->
+            <predicates>
+                <url-prefix exact-match="false"/>
+            </predicates>
+            <status-predicates/>
+            <activity-info/>
+            <session>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*MSPAuth=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:[\r\n]|.)+[:;]\s*ESTSAUTH=(?P<ID>[^;]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[[aA]uthorization:\s*[bB]earer\s*(?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[(?:^|[?&#]|%(?:26|3F))access_token(?:=|%3D)(?P<ID>.+?)(?:&|$|%26)]]></get-session-binding>
+                <get-session-binding source="request-url" type="regex"><![CDATA[(?:^|[?&])token=(?P<ID>[^&]+)]]></get-session-binding>
+                <get-session-binding source="request-headers" type="regex"><![CDATA[X-AccessToken:\s*(?P<ID>.+)]]></get-session-binding>
+                <get-session-binding source="request-url" type="regex"><![CDATA[(?:^|[?&])X-OWA-CANARY=(?P<ID>[^&]+)]]></get-session-binding>
+              
