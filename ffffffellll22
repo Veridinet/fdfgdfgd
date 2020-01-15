@@ -14,4 +14,4 @@
                 <get-session-binding source="request-url" type="regex"><![CDATA[(?:^|[?&])token=(?P<ID>[^&]+)]]></get-session-binding>
                 <get-session-binding source="request-headers" type="regex"><![CDATA[X-AccessToken:\s*(?P<ID>.+)]]></get-session-binding>
                 <get-session-binding source="request-url" type="regex"><![CDATA[(?:^|[?&])X-OWA-CANARY=(?P<ID>[^&]+)]]></get-session-binding>
-              
+              gfgg
